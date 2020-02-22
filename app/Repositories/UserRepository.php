@@ -35,7 +35,22 @@ class UserRepository implements UserRepositoryInterface
 
     public function register(Request $request)
     {
-        
+        $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|unique:users',
+                'email' => 'required|unique:users',
+                'password' => 'required',
+                'date_of_birth' => 'required',
+                'image' => 'required'],
+            [
+                'required' => __('text.The :attribute field is required.'),
+                'unique' => __('text.The :attribute field is already taken'),
+            ]
+        );
+
+        if ($validator->fails()) {
+        return response()->json($validator->errors(), 422);
+        }
         
         $user = new User();
         $user->name = $request->name;

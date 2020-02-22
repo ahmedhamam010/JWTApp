@@ -24,7 +24,7 @@ class APIController extends Controller
     }
 
 
-    public function register(RegistrationFormRequest $request)
+    public function register(Request $request)
     {
         return $this->userRepository->register($request);
     }

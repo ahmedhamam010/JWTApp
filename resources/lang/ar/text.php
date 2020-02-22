@@ -9,5 +9,9 @@ return [
     'could not be added' => 'لا يمكن الاضافة',
     'Tweet could not be deleted' => 'لا يمكن حذف التغريدة',
     'deleted successfully' => 'تم الحذف بنجاح',
+    'description is required' => 'من فضلك اكتب الوصف',
+    'description must be less than 140 character' => 'لابد ان يكون الوصف اقل من 140 حرف',
+    'The :attribute field is required.' => 'هذا الحقل مطلوب',
+    'The :attribute field is already taken' => 'هذة القيمة مؤخذة من قبل'
     
 ];

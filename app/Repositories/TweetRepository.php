@@ -18,6 +18,17 @@ class TweetRepository implements TweetRepositoryInterface
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            ['description' => 'required|max:140'],
+            [
+                'description.required' => __('text.description is required'),
+                'description.max' => __('text.description must be less than 140 character'),
+            ]
+        );
+
+        if ($validator->fails()) {
+        return response()->json($validator->errors(), 422);
+        }
         
         $user = JWTAuth::parseToken()->authenticate();
         $tweet = new Tweet();

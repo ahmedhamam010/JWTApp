@@ -9,5 +9,9 @@ return [
     'could not be added' => 'could not be added',
     'Tweet could not be deleted' => 'Tweet could not be deleted',
     'deleted successfully' => 'deleted successfully',
+    'description is required' => 'description is required',
+    'description must be less than 140 character' => 'description must be less than 140 character',
+    'The :attribute field is required.' => 'The :attribute field is required.' ,
+    'The :attribute field is already taken' => 'The :attribute field is already taken'
     
 ];
