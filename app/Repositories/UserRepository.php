@@ -57,7 +57,11 @@ class UserRepository implements UserRepositoryInterface
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->date_of_birth = $request->date_of_birth;
-        $user->image = $request->image;
+        $image = $request->file('image');
+        $path = public_path(). '/images/';
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move($path, $filename);
+        $user->image = $filename;
         $user->save();
 
         return response()->json([
